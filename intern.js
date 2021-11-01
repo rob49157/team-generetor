@@ -1,3 +1,4 @@
+const employee = ("employee")
 class intern extends employee{
     constructor(school){
         super(id,email,name)
@@ -5,7 +6,9 @@ class intern extends employee{
 
     
     getschool(){
-    this.school=school}
+    this.school=school
+    console.log("getschool")
+}
 
     getrole(){
         returns= intern

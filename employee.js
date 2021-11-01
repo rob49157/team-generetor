@@ -25,3 +25,5 @@ class employee{
         this.role = "Employee"
     }
 }
+
+module.exports.employee = employee;

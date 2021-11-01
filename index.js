@@ -1,7 +1,16 @@
+require('./intern.js');
 const inquirer =require("inquirer")
 const fs= require('fs')
 const html="./index.html"
-const template= ''
+let template= ''
+
+// import { appendFile } from 'fs';
+
+
+let intern = new intern()
+function testtt(){
+  intern.getSchool();
+}
 
 
 question= inquirer.prompt([{
@@ -22,6 +31,19 @@ question= inquirer.prompt([{
     name:'school'}
 
   ]).then(function(response){
-    $template +=`<div id= engineer> Intern name ${response.name} \n\n Intern id: ${response.name}\n\n Intern Email ${response.email}\n\n Intern Github ${response.school}`
-    fs.writeFile(html)
-   
+    template +=`<div id= "engineer"> Intern name ${response.name} \n\n Intern id: ${response.id}\n\n Intern Email ${response.email}\n\n Intern Github ${response.school}</div>\n </body>
+    \n </html>`
+    
+    try {
+      fs.appendFileSync('page.html', template);
+      console.log('The "data to append" was appended to file!');
+      } catch (err) {
+      // Handle the error
+      }
+     
+    
+  })
+ 
+  
+
+
