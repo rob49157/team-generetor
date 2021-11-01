@@ -3,9 +3,9 @@ class intern extends employee{
         super(id,email,name)
     }
 
+    
     getschool(){
-
-    }
+    this.school=school}
 
     getrole(){
         returns= intern

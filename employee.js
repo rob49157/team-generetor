@@ -1,43 +1,27 @@
 const inquirer =require("inquirer")
 const fs= require('fs')
+const html="./index.html"
+const template= ''
 
 class employee{
-    constructor(id,name,email){
+    constructor(id,name,email,role){
         this.name=name
         this.email=email
         this.id=id
+        this.role = role
         }
 
-    question= inquirer.prompt([{
-      type:'input',
-      message:' Whats your name?',
-      name: 'name'},
-
-      {type:'input',
-      message:"Enter id:",
-      name:'id'},
-
-      {type:'input',
-      message:'Enter email:',
-      name:'email:'}
-    ])
-// creat fs.writefile(html). also add the question get name
-    getName(){
-      console.log(`Name: ${this.name}`)
-
+    getName(name) {
+        this.name = name
+    } 
+    getId(id) {
+        this.id = id
+    }   
+    getEmail(email) {
+        this.email = email
     }
 
-    getid(){
-      console.log(`id: ${this.id}`)
+    getRole() {
+        this.role = "Employee"
     }
-
-    getemail(){
-      console.log(`Email: ${this.email}`)
-    }
-
-    getRole(){
-
-      returns= employee  
-    }
-
 }
