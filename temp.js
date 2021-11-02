@@ -2,7 +2,7 @@ const { fstat } = require("fs")
 const inquirer =require("inquirer")
 const fs= require('fs')
 const Engineer = require('./engineer')
-const intern =require("./intern")
+const intern =require( "./intern")
 const manager =require('./manager')
 
 
