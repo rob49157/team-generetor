@@ -144,6 +144,33 @@ function addMemberToHtml() {
             </div>
             `
         }
+        else if (member.getRole() === "intern") {
+            html += `
+            <div class="card">
+                <h1 class="card-header">${member.getName()}</h1>
+                <h2>${member.getRole()}</h2>
+                    <ul>
+                        <li>id: ${member.getId()}</li>
+                        <li>email: ${member.getEmail()}</li>
+                        <li>github: ${member.getschool()}</li>
+                    </ul>
+            </div>
+            `
+        }
+    
+        else if (member.getRole() === "manager") {
+            html += `
+            <div class="card">
+                <h1 class="card-header">${member.getName()}</h1>
+                <h2>${member.getRole()}</h2>
+                    <ul>
+                        <li>id: ${member.getId()}</li>
+                        <li>email: ${member.getEmail()}</li>
+                        <li>github: ${member.getOfficeNumer()}</li>
+                    </ul>
+            </div>
+            `
+        }
     }
 
     html += `
