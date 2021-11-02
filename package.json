@@ -1,0 +1,24 @@
+{
+  "name": "team-generetor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rob49157/team-generetor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rob49157/team-generetor/issues"
+  },
+  "homepage": "https://github.com/rob49157/team-generetor#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}

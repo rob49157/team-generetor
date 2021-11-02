@@ -1,7 +1,20 @@
+require('./intern.js');
 const inquirer =require("inquirer")
 const fs= require('fs')
 const html="./index.html"
+<<<<<<< HEAD
 const template= ' '
+=======
+let template= ''
+
+// import { appendFile } from 'fs';
+
+
+let intern = new intern()
+function testtt(){
+  intern.getSchool();
+}
+>>>>>>> ee244196afcd708476c73786c2b21dff9a6d7e9c
 
 
 question= inquirer.prompt([{
@@ -23,6 +36,7 @@ question= inquirer.prompt([{
     name:'school'}
 
   ]).then(function(response){
+<<<<<<< HEAD
     template +=`<div id= engineer> Intern name ${response.name} \n\n Intern id: ${response.id}\n\n Intern Email ${response.email}\n\n Intern Github ${response.school}`
     fs.appendFile('./page.html',template,function(err){
         if(err){
@@ -31,3 +45,21 @@ question= inquirer.prompt([{
     })
     })
   
+=======
+    template +=`<div id= "engineer"> Intern name ${response.name} \n\n Intern id: ${response.id}\n\n Intern Email ${response.email}\n\n Intern Github ${response.school}</div>\n </body>
+    \n </html>`
+    
+    try {
+      fs.appendFileSync('page.html', template);
+      console.log('The "data to append" was appended to file!');
+      } catch (err) {
+      // Handle the error
+      }
+     
+    
+  })
+ 
+  
+
+
+>>>>>>> ee244196afcd708476c73786c2b21dff9a6d7e9c
