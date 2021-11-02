@@ -2,9 +2,10 @@ const { fstat } = require("fs")
 const inquirer =require("inquirer")
 const fs= require('fs')
 const Engineer = require('./engineer')
-const intern =require( "./intern")
+const Intern = require('./intern')
+// const intern =require( "./intern")
 
-const manager = require("./manager")
+const Manager = require("./manager")
 
 
 
@@ -61,65 +62,54 @@ function addNewMember(){
                     addMemberToHtml()
                 }
             })
+        } else if (role === "intern") {
+            inquirer.prompt([
+                {
+                    type:'input',
+                    message:"Enter your school name:",
+                    name:'school'
+                },
+                {
+                    type:'list',
+                    message:'Would you like to add any additional team members?',
+                    choices:['yes', 'no'],
+                    name:'addMoreMembers'
+                }
+            ]).then(function({info, addMoreMembers}) {
+                let intern = new Intern(id, name, email, info)
+                teamMembers.push(intern)
+                // addMemberToHtml(engineer)
+                if (addMoreMembers === 'yes'){
+                    addNewMember()
+                } else {
+                    addMemberToHtml()
+                }
+            })
+        } else if (role === "manager") {
+            inquirer.prompt([
+                {
+                    type:'input',
+                    message:" Office number:",
+                    name:'officenumber'
+                },
+                {
+                    type:'list',
+                    message:'Would you like to add any additional team members?',
+                    choices:['yes', 'no'],
+                    name:'addMoreMembers'
+                }
+            ]).then(function({info, addMoreMembers}) {
+                let manager = new Manager(id, name, email, info)
+                teamMembers.push(manager)
+                // addMemberToHtml(engineer)
+                if (addMoreMembers === 'yes'){
+                    addNewMember()
+                } else {
+                    addMemberToHtml()
+                }
+            })
         }
   })
-    // intern
-  .then(function({name, role, id, email,school}){
-    console.log(name)
-      if (role === "intern") {
-          inquirer.prompt([
-              {
-                  type:'input',
-                  message:"Enter your school name:",
-                  name:'info'
-              },
-              {
-                  type:'list',
-                  message:'Would you like to add any additional team members?',
-                  choices:['yes', 'no'],
-                  name:'addMoreMembers'
-              }
-          ]).then(function({info, addMoreMembers}) {
-              let intern = new intern(id, name, email, info)
-              teamMembers.push(intern)
-              // addMemberToHtml(engineer)
-              if (addMoreMembers === 'yes'){
-                  addNewMember()
-              } else {
-                  addMemberToHtml()
-              }
-          })
-      }
-})
-
-// manager 
-.then(function({name, role, id, email,officenumber}){
-    console.log(name)
-      if (role === "intern") {
-          inquirer.prompt([
-              {
-                  type:'input',
-                  message:" Office number:",
-                  name:'info'
-              },
-              {
-                  type:'list',
-                  message:'Would you like to add any additional team members?',
-                  choices:['yes', 'no'],
-                  name:'addMoreMembers'
-              }
-          ]).then(function({info, addMoreMembers}) {
-              let manager = new manager(id, name, email, info)
-              teamMembers.push(manager)
-              // addMemberToHtml(engineer)
-              if (addMoreMembers === 'yes'){
-                  addNewMember()
-              } else {
-                  addMemberToHtml()
-              }
-          })
-      }
-})
 }
 
 
