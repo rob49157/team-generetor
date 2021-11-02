@@ -4,24 +4,25 @@ const html="./index.html"
 const template= ''
 
 class employee{
-    constructor(id,name,email,role){
+    constructor(id,name,email){
         this.name=name
         this.email=email
         this.id=id
-        this.role = role
         }
 
-    getName(name) {
-        this.name = name
+    getName() {
+        return this.name
     } 
-    getId(id) {
-        this.id = id
+    getId() {
+        return this.id
     }   
-    getEmail(email) {
-        this.email = email
+    getEmail() {
+        return this.email
     }
 
     getRole() {
-        this.role = "Employee"
+        return "Employee"
     }
 }
+
+module.exports = employee

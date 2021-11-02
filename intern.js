@@ -1,3 +1,4 @@
+const employee = require("./employee")
 class intern extends employee{
     constructor(school){
         super(id,email,name)
@@ -7,7 +8,8 @@ class intern extends employee{
     getschool(){
     this.school=school}
 
-    getrole(){
-        returns= intern
+    getRole(){
+        return "intern"
     }
 }
+module.exports = intern

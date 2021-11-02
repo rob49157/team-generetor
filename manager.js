@@ -1,10 +1,16 @@
+const employee = require('./employee')
 class manager extends employee{
     constructor(officenumber){
-        super(id,email,name)
+        super(id, name, email)
+        this.officenumber = officenumber
     }
     
-    getrole(){
-        returns= manager
+    getOfficeNumer(officenumber){
+        this.officenumber = officenumber
     }
-        
+    
+    getRole() {
+        return "Manager"
     }
+}
+module.exports = manager
