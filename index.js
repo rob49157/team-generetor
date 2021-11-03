@@ -137,8 +137,8 @@ function addMemberToHtml() {
                     <h2>${member.getRole()}</h2>
                         <ul>
                             <li>id: ${member.getId()}</li>
-                            <li>email: ${member.getEmail()}</li>
-                            <li>github: ${member.getGithub()}</li>
+                            <li> <a href="mailto:robertopaipo@hotmail.com">email: ${member.getEmail()}</a></li>
+                            <li> <a href="https://github.com/rob49157">github: ${member.getGithub()}</a></li>
                         </ul>
                 </div>
             </div>
@@ -152,7 +152,7 @@ function addMemberToHtml() {
                     <h2>${member.getRole()}</h2>
                         <ul>
                             <li>id: ${member.getId()}</li>
-                            <li>email: ${member.getEmail()}</li>
+                            <li> <a href="mailto:robertopaipo@hotmail.com">email: ${member.getEmail()}</a></li>
                             <li>school: ${member.getschool()}</li>
                         </ul>
                 </div>
@@ -168,7 +168,7 @@ function addMemberToHtml() {
                     <h2>${member.getRole()}</h2>
                         <ul>
                             <li>id: ${member.getId()}</li>
-                            <li>email: ${member.getEmail()}</li>
+                            <li> <a href="mailto:robertopaipo@hotmail.com">email: ${member.getEmail()}</a></li>
                             <li>office number: ${member.getOfficeNumer()}</li>
                         </ul>
                     </div>
