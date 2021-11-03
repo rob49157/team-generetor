@@ -37,13 +37,12 @@ function addNewMember(){
     }
   ])
   .then(function({name, role, id, email}){
-      console.log(name)
         if (role === "Engineer") {
             inquirer.prompt([
                 {
                     type:'input',
                     message:"Enter team member's GitHub:",
-                    name:'info'
+                    name:'github'
                 },
                 {
                     type:'list',
@@ -52,8 +51,8 @@ function addNewMember(){
                     name:'addMoreMembers'
                 }
                 
-            ]).then(function({info, addMoreMembers}) {
-                let engineer = new Engineer(id, name, email, info)
+            ]).then(function({github, addMoreMembers}) {
+                let engineer = new Engineer(id, name, email, github)
                 teamMembers.push(engineer)
                 
                 if (addMoreMembers === 'yes'){
@@ -75,10 +74,9 @@ function addNewMember(){
                     choices:['yes', 'no'],
                     name:'addMoreMembers'
                 }
-            ]).then(function({info, addMoreMembers}) {
-                let intern = new Intern(id, name, email, info)
+            ]).then(function({school, addMoreMembers}) {
+                let intern = new Intern(id, name, email, school)
                 teamMembers.push(intern)
-                // addMemberToHtml(engineer)
                 if (addMoreMembers === 'yes'){
                     addNewMember()
                 } else {
@@ -98,10 +96,9 @@ function addNewMember(){
                     choices:['yes', 'no'],
                     name:'addMoreMembers'
                 }
-            ]).then(function({info, addMoreMembers}) {
-                let manager = new Manager(id, name, email, info)
+            ]).then(function({officenumber, addMoreMembers}) {
+                let manager = new Manager(id, name, email, officenumber)
                 teamMembers.push(manager)
-                // addMemberToHtml(engineer)
                 if (addMoreMembers === 'yes'){
                     addNewMember()
                 } else {
@@ -127,53 +124,61 @@ function addMemberToHtml() {
     </head>
     <body>
     <h1>My Team</h1>
+    <div class="row">
     `
 
     for (let i = 0; i < teamMembers.length; i++) {
         member = teamMembers[i]
         if (member.getRole() === "engineer") {
             html += `
-            <div class="card">
-                <h1 class="card-header">${member.getName()}</h1>
-                <h2>${member.getRole()}</h2>
-                    <ul>
-                        <li>id: ${member.getId()}</li>
-                        <li>email: ${member.getEmail()}</li>
-                        <li>github: ${member.getGithub()}</li>
-                    </ul>
+            <div class="col-md-3">
+                <div class="card">
+                    <h1 class="card-header bg-success">${member.getName()}</h1>
+                    <h2>${member.getRole()}</h2>
+                        <ul>
+                            <li>id: ${member.getId()}</li>
+                            <li>email: ${member.getEmail()}</li>
+                            <li>github: ${member.getGithub()}</li>
+                        </ul>
+                </div>
             </div>
             `
         }
         else if (member.getRole() === "intern") {
             html += `
-            <div class="card">
-                <h1 class="card-header">${member.getName()}</h1>
-                <h2>${member.getRole()}</h2>
-                    <ul>
-                        <li>id: ${member.getId()}</li>
-                        <li>email: ${member.getEmail()}</li>
-                        <li>github: ${member.getschool()}</li>
-                    </ul>
+            <div class="col-md-3">
+                <div class="card">
+                    <h1 class="card-header bg-danger">${member.getName()}</h1>
+                    <h2>${member.getRole()}</h2>
+                        <ul>
+                            <li>id: ${member.getId()}</li>
+                            <li>email: ${member.getEmail()}</li>
+                            <li>school: ${member.getschool()}</li>
+                        </ul>
+                </div>
             </div>
             `
         }
     
         else if (member.getRole() === "manager") {
             html += `
-            <div class="card">
-                <h1 class="card-header">${member.getName()}</h1>
-                <h2>${member.getRole()}</h2>
-                    <ul>
-                        <li>id: ${member.getId()}</li>
-                        <li>email: ${member.getEmail()}</li>
-                        <li>github: ${member.getOfficeNumer()}</li>
-                    </ul>
+            <div class="col-md-3">
+                <div class="card">
+                    <h1 class="card-header">${member.getName()}</h1>
+                    <h2>${member.getRole()}</h2>
+                        <ul>
+                            <li>id: ${member.getId()}</li>
+                            <li>email: ${member.getEmail()}</li>
+                            <li>office number: ${member.getOfficeNumer()}</li>
+                        </ul>
+                    </div>
             </div>
             `
         }
     }
 
     html += `
+    </div>
     </body>
     </html>
     `
