@@ -6,15 +6,15 @@ describe('engineer',()=>{
         
         expect(obj.getId()).toEqual(1)
     })
-    it('should return the name ',()=>{
-        const obj = new Interntest(1, 'roberto', 'robertopaipo@hotmail.com', 'centennial') 
-        
-        expect(obj.getName()).toEqual('roberto')
-    })
     it('should return the email ',()=>{
         const obj = new Interntest(1, 'roberto', 'robertopaipo@hotmail.com', 'centennial') 
         
-        expect(obj.getEmail()).toEqual('robertopaipo@hotmail.com')
+        expect(obj.getName()).toEqual('robertopaipo@hotmail.com')
+    })
+    it('should return the name ',()=>{
+        const obj = new Interntest(1, 'roberto', 'robertopaipo@hotmail.com', 'centennial') 
+        
+        expect(obj.getEmail()).toEqual('roberto')
     })
     it('should return the  School ',()=>{
         const obj = new Interntest(1, 'roberto', 'robertopaipo@hotmail.com', 'centennial') 
