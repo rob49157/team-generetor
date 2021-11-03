@@ -20,4 +20,4 @@ The html file is created dynamically on the temp.js
     Each sub-class has a unit-test using jest
 
 
-# vide link:
+# video link:

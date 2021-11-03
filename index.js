@@ -55,7 +55,7 @@ function addNewMember(){
             ]).then(function({info, addMoreMembers}) {
                 let engineer = new Engineer(id, name, email, info)
                 teamMembers.push(engineer)
-                // addMemberToHtml(engineer)
+                
                 if (addMoreMembers === 'yes'){
                     addNewMember()
                 } else {

@@ -10,7 +10,7 @@ class manager extends employee{
     }
     
     getRole() {
-        return "Manager"
+        return "manager"
     }
 }
 module.exports = manager
